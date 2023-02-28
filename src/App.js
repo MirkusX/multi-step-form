@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { PageContext } from "./Components/Context";
 import { First } from "./Pages/First";
 import { Fourth } from "./Pages/Fourth";
 import { Second } from "./Pages/Second";
@@ -20,7 +21,19 @@ function App() {
     }
   };
 
-  return <div className="App">{conditionalRender()}</div>;
+  const increment = () => {
+    setPage(page + 1);
+    if (page == 3) {
+      setPage(0);
+    }
+  };
+
+  return (
+    <div className="App">
+      {conditionalRender()}
+      <button onClick={() => increment()}>Next</button>
+    </div>
+  );
 }
 
 export default App;
