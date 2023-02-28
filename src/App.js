@@ -21,7 +21,8 @@ function App() {
     }
   };
 
-  const increment = () => {
+  const increment = (e) => {
+    e.preventDefault();
     setPage(page + 1);
     if (page == 3) {
       setPage(0);
@@ -31,7 +32,8 @@ function App() {
   return (
     <div className="App">
       {conditionalRender()}
-      <button onClick={() => increment()}>Next</button>
+      <button onClick={(e) => increment(e)}>Next</button>
+      {page > 0 && <button onClick={() => setPage(page - 1)}>Back</button>}
     </div>
   );
 }
