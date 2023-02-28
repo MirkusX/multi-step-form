@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import "./App.css";
 import { PageContext } from "./Components/Context";
 import { First } from "./Pages/First";
@@ -31,9 +31,11 @@ function App() {
 
   return (
     <div className="App">
-      {conditionalRender()}
-      <button onClick={(e) => increment(e)}>Next</button>
-      {page > 0 && <button onClick={() => setPage(page - 1)}>Back</button>}
+      <form>
+        {conditionalRender()}
+        <input type="submit" onSubmit={increment} />
+        {page > 0 && <button onClick={() => setPage(page - 1)}>Back</button>}
+      </form>
     </div>
   );
 }
