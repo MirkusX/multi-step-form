@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css";
-import { PageContext } from "./Components/Context";
 import { First } from "./Pages/First";
 import { Fourth } from "./Pages/Fourth";
 import { Second } from "./Pages/Second";
