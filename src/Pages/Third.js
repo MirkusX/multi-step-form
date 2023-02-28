@@ -1,6 +1,6 @@
 export const Third = () => {
   return (
-    <form>
+    <>
       <h1>Pick add-ons</h1>
       <p>Add-ons help enhance your gaming experience</p>
       <div>
@@ -18,6 +18,6 @@ export const Third = () => {
         <p>Customizable Profile</p>
         <p>Custom theme to your profile</p>
       </div>
-    </form>
+    </>
   );
 };

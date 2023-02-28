@@ -23,6 +23,7 @@ function App() {
   const increment = (e) => {
     e.preventDefault();
     setPage(page + 1);
+    console.log(page);
     if (page == 3) {
       setPage(0);
     }
@@ -30,11 +31,11 @@ function App() {
 
   return (
     <div className="App">
-      <form>
+      <form onSubmit={increment}>
         {conditionalRender()}
-        <input type="submit" onSubmit={increment} />
-        {page > 0 && <button onClick={() => setPage(page - 1)}>Back</button>}
+        <input type="submit" />
       </form>
+      {page > 0 && <button onClick={() => setPage(page - 1)}>Back</button>}
     </div>
   );
 }
