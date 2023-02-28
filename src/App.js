@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import { PageContext } from "./Components/Context";
 import { First } from "./Pages/First";
