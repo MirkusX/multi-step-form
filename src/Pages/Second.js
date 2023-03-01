@@ -1,10 +1,13 @@
 import { Switch } from "@mui/material";
-import { useReducer } from "react";
-import { initialState, reducer } from "../Components/useReducer";
+import { useContext } from "react";
+import { ExtraContext, PlanContext } from "../Components/Context";
 
 export const Second = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
-
+  const { setPlan, plan } = useContext(PlanContext);
+  const storePlan = (e) => {
+    console.log(plan);
+    setPlan([{ plan: e.target.id, price: e.target.value }]);
+  };
   return (
     <>
       <h1>Select your plan</h1>
@@ -14,25 +17,28 @@ export const Second = () => {
       <input
         type="radio"
         name="plan"
-        value="Arcade"
+        value="9"
         required="required"
-        onChange={(e) => dispatch({ type: "plan", payload: e.target.value })}
+        id="Arcade"
+        onChange={(e) => storePlan(e)}
       />
       <label>Advanced</label>
       <p>$12/Mo</p>
       <input
         type="radio"
         name="plan"
-        value="Advanced"
-        onChange={(e) => dispatch({ type: "plan", payload: e.target.value })}
+        value="12"
+        id="Advanced"
+        onChange={(e) => storePlan(e)}
       />
       <label>Pro</label>
       <p>$15/Mo</p>
       <input
         type="radio"
         name="plan"
-        value="Pro"
-        onChange={(e) => dispatch({ type: "plan", payload: e.target.value })}
+        value="15"
+        id="Pro"
+        onChange={(e) => storePlan(e)}
       />
       <p>Monthly</p>
       <Switch />

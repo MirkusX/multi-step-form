@@ -1,16 +1,19 @@
-import { useReducer } from "react";
-import { initialState, reducer } from "../Components/useReducer";
+import { useContext } from "react";
+import { PlanContext } from "../Components/Context";
 
 export const Fourth = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const { plan } = useContext(PlanContext);
   return (
     <>
       <h1>Finishing up</h1>
       <p>Double-check everything looks OK before confirming</p>
-      <p>{state.plan}</p>
-      {state.plan === "Pro" && <p>$15</p>}
-      {state.extra.map((item, index) => {
-        return <p key={index}>{item}</p>;
+      {plan.map((item, index) => {
+        return (
+          <div key={index}>
+            <p>{item.plan}</p>
+            <p>{item.price}</p>
+          </div>
+        );
       })}
     </>
   );
