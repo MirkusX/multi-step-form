@@ -1,9 +1,10 @@
+import { Switch } from "@mui/material";
 import { useReducer } from "react";
 import { initialState, reducer } from "../Components/useReducer";
 
 export const Second = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state.plan);
+
   return (
     <>
       <h1>Select your plan</h1>
@@ -30,6 +31,9 @@ export const Second = () => {
         value="Pro"
         onChange={(e) => dispatch({ type: "plan", payload: e.target.value })}
       />
+      <p>Monthly</p>
+      <Switch />
+      <p>Yearly</p>
     </>
   );
 };

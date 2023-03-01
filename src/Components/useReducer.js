@@ -8,6 +8,10 @@ export const reducer = (state, action) => {
     case "plan":
       return { ...state, plan: (state.plan = action.payload) };
     case "extra":
-      return { ...state, extra: (state.extra = action.payload) };
+      state.extra.push(action.payload);
+      return {
+        ...state,
+        extra: state.extra,
+      };
   }
 };
