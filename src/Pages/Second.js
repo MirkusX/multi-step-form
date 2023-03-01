@@ -10,6 +10,7 @@ export const Second = () => {
       <h1>Select your plan</h1>
       <p>You have the option of monthly or yearly billing</p>
       <label>Arcade</label>
+      <p>$9/Mo</p>
       <input
         type="radio"
         name="plan"
@@ -18,6 +19,7 @@ export const Second = () => {
         onChange={(e) => dispatch({ type: "plan", payload: e.target.value })}
       />
       <label>Advanced</label>
+      <p>$12/Mo</p>
       <input
         type="radio"
         name="plan"
@@ -25,6 +27,7 @@ export const Second = () => {
         onChange={(e) => dispatch({ type: "plan", payload: e.target.value })}
       />
       <label>Pro</label>
+      <p>$15/Mo</p>
       <input
         type="radio"
         name="plan"
