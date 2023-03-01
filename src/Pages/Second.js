@@ -1,11 +1,19 @@
 import { Switch } from "@mui/material";
 import { useContext } from "react";
-import { ExtraContext, PlanContext } from "../Components/Context";
+import { PlanContext, TimeContext } from "../Components/Context";
+import { yearly } from "./FormPageFiles/FormPrices";
 
 export const Second = () => {
   const { setPlan, plan } = useContext(PlanContext);
+  const { time, setTime } = useContext(TimeContext);
+  const { plan, addOns } = yearly;
+  const switchTime = () => {
+    setTime("yearly");
+    if (time === "yearly") {
+      setTime("monthly");
+    }
+  };
   const storePlan = (e) => {
-    console.log(plan);
     setPlan([{ plan: e.target.id, price: e.target.value }]);
   };
   return (
@@ -41,7 +49,7 @@ export const Second = () => {
         onChange={(e) => storePlan(e)}
       />
       <p>Monthly</p>
-      <Switch />
+      <Switch onChange={() => switchTime()} />
       <p>Yearly</p>
     </>
   );

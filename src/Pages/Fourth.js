@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { PlanContext } from "../Components/Context";
+import { ExtraContext, PlanContext } from "../Components/Context";
 
 export const Fourth = () => {
   const { plan } = useContext(PlanContext);
+  const { extra } = useContext(ExtraContext);
   return (
     <>
       <h1>Finishing up</h1>
@@ -15,6 +16,11 @@ export const Fourth = () => {
           </div>
         );
       })}
+      <div>
+        {extra.map((item, index) => {
+          return <p>{item}</p>;
+        })}
+      </div>
     </>
   );
 };
