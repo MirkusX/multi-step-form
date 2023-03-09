@@ -7,7 +7,7 @@ import { Second } from "./Pages/Second";
 import { Third } from "./Pages/Third";
 
 function App() {
-  const [time, setTime] = useState();
+  const [monthly, setMonthly] = useState();
   const [plan, setPlan] = useState([]);
   const [extra, setExtra] = useState([]);
   const [page, setPage] = useState(0);
@@ -34,7 +34,7 @@ function App() {
   };
 
   return (
-    <TimeContext.Provider value={{ time, setTime }}>
+    <TimeContext.Provider value={{ monthly, setMonthly }}>
       <PlanContext.Provider value={{ setPlan, plan }}>
         <ExtraContext.Provider value={{ setExtra, extra }}>
           <div className="App">

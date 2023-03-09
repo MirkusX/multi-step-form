@@ -1,5 +1,5 @@
 export const monthly = {
-  plan: {
+  plans: {
     arcade: 9,
     advanced: 12,
     pro: 15,
@@ -12,14 +12,14 @@ export const monthly = {
 };
 
 export const yearly = {
-  plan: {
+  plans: {
     arcade: 90,
     advanced: 120,
     pro: 150,
   },
   addOns: {
-    online: 1,
-    storage: 2,
-    profile: 2,
+    online: 10,
+    storage: 20,
+    profile: 20,
   },
 };

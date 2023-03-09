@@ -1,18 +1,37 @@
 import { Switch } from "@mui/material";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { PlanContext, TimeContext } from "../Components/Context";
-import { yearly } from "./FormPageFiles/FormPrices";
 
 export const Second = () => {
   const { setPlan, plan } = useContext(PlanContext);
-  const { time, setTime } = useContext(TimeContext);
-  const { plan, addOns } = yearly;
+  const { setMonthly, monthly } = useContext(TimeContext);
+  const [price, setPrice] = useState([
+    { price: 9, name: "arcade" },
+    { price: 12, name: "advanced" },
+    { price: 15, name: "pro" },
+
+    { price: 1, name: "online service" },
+    { price: 2, name: "larger storage" },
+    { price: 2, name: "customizable profile" },
+  ]);
   const switchTime = () => {
-    setTime("yearly");
-    if (time === "yearly") {
-      setTime("monthly");
-    }
+    setPrice([
+      { price: 90, name: "arcade" },
+      { price: 120, name: "advanced" },
+      { price: 150, name: "pro" },
+
+      { price: 10, name: "online service" },
+      { price: 20, name: "larger storage" },
+      { price: 20, name: "customizable profile" },
+    ]);
   };
+  // arcade: 90,
+  // advanced: 120,
+  // pro: 150,
+
+  // online: 10,
+  // storage: 20,
+  // profile: 20,
   const storePlan = (e) => {
     setPlan([{ plan: e.target.id, price: e.target.value }]);
   };
@@ -20,34 +39,23 @@ export const Second = () => {
     <>
       <h1>Select your plan</h1>
       <p>You have the option of monthly or yearly billing</p>
-      <label>Arcade</label>
-      <p>$9/Mo</p>
-      <input
-        type="radio"
-        name="plan"
-        value="9"
-        required="required"
-        id="Arcade"
-        onChange={(e) => storePlan(e)}
-      />
-      <label>Advanced</label>
-      <p>$12/Mo</p>
-      <input
-        type="radio"
-        name="plan"
-        value="12"
-        id="Advanced"
-        onChange={(e) => storePlan(e)}
-      />
-      <label>Pro</label>
-      <p>$15/Mo</p>
-      <input
-        type="radio"
-        name="plan"
-        value="15"
-        id="Pro"
-        onChange={(e) => storePlan(e)}
-      />
+      {price.slice(0, 3).map((item, index) => {
+        return (
+          <>
+            <label>{item.name}</label>
+            <p>{item.price}</p>
+            <input
+              type="radio"
+              name="plan"
+              value={item.price}
+              required="required"
+              id={item.name}
+              onChange={(e) => storePlan(e)}
+            />
+          </>
+        );
+      })}
+
       <p>Monthly</p>
       <Switch onChange={() => switchTime()} />
       <p>Yearly</p>
